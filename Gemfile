@@ -41,6 +41,9 @@ end
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
+# Use Haml for templates
+gem 'haml'
+
 # Use debugger
 group :development, :test do
   gem 'debugger'
