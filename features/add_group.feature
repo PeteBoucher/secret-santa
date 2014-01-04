@@ -1,7 +1,7 @@
 Feature: Add a group of gift givers
-	As a user of the site
-	So that I can set up a Secret Santa
-	I should to be able to add a new group for my party
+	As a Secret Santa organiser
+	So that I can set up a Secret Santa for the office Xmas party
+	I should to be able to add a new group of paricipants for my event
 
 	Scenario:
 
