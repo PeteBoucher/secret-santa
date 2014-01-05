@@ -15,3 +15,16 @@ some_groups = [
 	{:name => 'IT dept.', :organisation => 'Cloud Corp',
 		:max_spend => '', :min_spend => '10'}
 ]
+some_groups.each do |group|
+  Group.create!(group)
+end
+
+some_users = [
+	{:name => 'Pete', :email => 'pete@home.es'},
+	{:name => 'Manre', :email => 'manrique@21fifty.com'},
+	{:name => 'Dirk', :email => 'd.gently@marketing.toyota.jp'},
+	{:name => 'Dave', :email => 'dave_evans@cloudcorp.com'}
+]
+some_users.each do |user|
+  User.create!(user)
+end

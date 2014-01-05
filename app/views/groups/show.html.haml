@@ -1,0 +1,17 @@
+%h2 Profile for #{@group.name}
+
+%ul#details
+  %li
+    Name:
+    = @group.name
+  %li
+    Company:
+    = @group.organisation
+  %li
+    Spending upper limit:
+    = @group.max_spend
+  %li
+    Spending lower limit:
+    = @group.min_spend
+
+= link_to 'Back to group list', groups_path

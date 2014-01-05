@@ -1,0 +1,11 @@
+%h2 Profile for #{@user.name}
+
+%ul#details
+  %li
+    Name:
+    = @user.name
+  %li
+    Email:
+    = @user.email
+
+= link_to 'Back to user list', users_path

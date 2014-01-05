@@ -1,0 +1,14 @@
+%h1 All Users
+
+%table#users
+  %thead
+    %tr
+      %th User Name
+      %th Email Address
+      %th More Info
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.name
+        %td= user.email
+        %td= link_to "More about #{user.name}", user_path(user)
