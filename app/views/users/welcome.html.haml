@@ -1,0 +1,10 @@
+%h1 Secret Santa
+
+%p.tagline Organise your office or group Secret Santa pool the web 2.0 way!
+
+%p Sign-up and start a new Secret Santa gift pool.
+
+= form_tag :users, :method => :post do
+	= text_field_tag 'name', 'Username'
+	= text_field_tag 'email', 'Email address'
+	= submit_tag 'Sign up'

@@ -3,8 +3,30 @@ class UsersController < ApplicationController
 		@users = User.all
 	end
 
+	def create
+		unless User.create(:name => params[:name],
+			:email => params[:email]).valid?
+			render_template :error
+		end
+	end
+
+	def new
+	end
+
+	def edit
+	end
+
 	def show
 		id = params[:id]
 		@user = User.find(id)
+	end
+
+	def update
+	end
+
+	def destroy
+	end
+
+	def welcome
 	end
 end
