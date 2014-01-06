@@ -44,6 +44,8 @@ end
 # Use Haml for templates
 gem 'haml'
 
+gem "cucumber-rails-training-wheels", :group => :test
+
 # Use debugger
 group :development, :test do
   gem 'debugger'

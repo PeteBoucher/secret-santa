@@ -53,6 +53,8 @@ GEM
       cucumber (>= 1.2.0)
       nokogiri (>= 1.5.0)
       rails (>= 3.0.0)
+    cucumber-rails-training-wheels (1.0.0)
+      cucumber-rails (>= 1.1.1)
     database_cleaner (1.2.0)
     debugger (1.6.3)
       columnize (>= 0.3.1)
@@ -161,6 +163,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   cucumber-rails
+  cucumber-rails-training-wheels
   database_cleaner
   debugger
   haml
