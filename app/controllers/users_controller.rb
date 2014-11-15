@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 	def create
 		unless User.create(:name => params[:name],
 			:email => params[:email]).valid?
-			render_template :error
+			render :error
 		end
 	end
 
