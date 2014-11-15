@@ -14,4 +14,23 @@
     Spending lower limit:
     = @group.min_spend
 
+%h2
+  Members
+%table
+  %tr
+    %th
+      Name
+
+    %th
+      Email
+
+  - @group.members.each do |member|
+    %tr
+      %td
+        = member.name
+
+      %td
+        = member.email
+
+
 = link_to 'Back to group list', groups_path
