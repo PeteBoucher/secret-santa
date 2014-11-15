@@ -1,0 +1,13 @@
+%h1
+  Create a group for your Secret Santa
+
+= form_tag :groups, :method => :post do
+  = label_tag 'Group name*'
+  = text_field_tag 'name'
+  = label_tag 'Organisation*'
+  = text_field_tag 'organisation'
+  = label_tag 'Maximum spend'
+  = text_field_tag 'nim_spend'
+  = label_tag 'Minimum spend'
+  = text_field_tag 'max_spend'
+  = submit_tag 'Create group'

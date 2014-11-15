@@ -4,6 +4,16 @@ class GroupsController < ApplicationController
 	end
 
 	def create
+		unless Group.create(
+				name: params[:name],
+				organisation: params[:organisation],
+				min_spend: params[:min_spend],
+				max_spend: params[:max_spend]
+			)
+			render_template :error
+		else
+			redirect_to :index
+		end
 	end
 
 	def new
