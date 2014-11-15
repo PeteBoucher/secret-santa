@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Group.delete_all
 some_groups = [
 	{:name => 'The Valley', :organisation => 'Witkowski Family',
 		:max_spend => '', :min_spend => ''},
@@ -19,6 +20,7 @@ some_groups.each do |group|
   Group.create!(group)
 end
 
+User.delete_all
 some_users = [
 	{:name => 'Pete', :email => 'pete@home.es'},
 	{:name => 'Manre', :email => 'manrique@21fifty.com'},
@@ -28,3 +30,11 @@ some_users = [
 some_users.each do |user|
   User.create!(user)
 end
+
+work = Group.find_by(name: '21Fifty')
+work.members << User.find_by(name: 'Pete')
+work.members << User.find_by(name: 'Manre')
+
+marketing = Group.find_by(name: 'Marketing dept.')
+marketing.members << User.find_by(name: 'Dirk')
+marketing.members << User.find_by(name: 'Dave')
