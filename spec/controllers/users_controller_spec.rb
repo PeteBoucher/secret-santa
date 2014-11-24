@@ -1,13 +1,14 @@
 require 'spec_helper'
 
 describe UsersController do
+	before :each do
+		@user = FactoryGirl.create :user
+	end
+
 	describe 'GET index' do
 		it 'assigns @users' do
-			# user = User.create(name: 'Pedro')
-			user = FactoryGirl.create :user
-
 			get :index
-			assigns(:users).should eq([user])
+			assigns(:users).should eq([@user])
 		end
 
 		it "renders the index template" do
@@ -18,24 +19,26 @@ describe UsersController do
 
 	describe 'POST create' do
 		it 'creates a new user' do
-			# debugger
+			post :create, user: FactoryGirl.attributes_for(:user)
+			response.should be_success
+		end
 
-			expect{
-				post :create, user: FactoryGirl.attributes_for(:user)
-			}.to change(User, :count).by 1
+		it 'redirects to the error page when user is invalid' do
+			post :create, user: {name: ''}
+			response.should render_template 'error'
 		end
 	end
 
 	describe 'GET show' do
-		before :all do
-			user = FactoryGirl.create :user
+		before :each do
+			get :show, id: @user.id
 		end
 
 		it 'assigns @user' do
+			assigns(:user).should eq @user
 		end
 
 		it 'renders the show template' do
-		  get 'show/1'
 		  expect(response).to render_template("show")
 		end
 	end
