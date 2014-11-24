@@ -18,6 +18,8 @@ describe UsersController do
 
 	describe 'POST create' do
 		it 'creates a new user' do
+			# debugger
+
 			expect{
 				post :create, user: FactoryGirl.attributes_for(:user)
 			}.to change(User, :count).by 1
@@ -25,10 +27,16 @@ describe UsersController do
 	end
 
 	describe 'GET show' do
+		before :all do
+			user = FactoryGirl.create :user
+		end
+
 		it 'assigns @user' do
 		end
 
-		it 'renders the sow template' do
+		it 'renders the show template' do
+		  get 'show/1'
+		  expect(response).to render_template("show")
 		end
 	end
 end
