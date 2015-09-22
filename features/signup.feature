@@ -10,8 +10,14 @@ Feature: Signup
 		And I press "Sign up"
 		Then I should see "Congratulations"
 
-	Scenario: via emain with no username (sad path)
+	Scenario: via email with no username (sad path)
 		Given I am on the homepage
 		And I fill in "email" with "petebouch@gmail.com"
 		And I press "Sign up"
-		Then I should see "Error"
+		Then I should see "error"
+
+	Scenario: via username with no email (sad path)
+		Given I am on the homepage
+		When I fill in "name" with "Pete"
+		And I press "Sign up"
+		Then I should see "error"
