@@ -9,10 +9,10 @@ class GroupsController < ApplicationController
 				organisation: params[:organisation],
 				min_spend: params[:min_spend],
 				max_spend: params[:max_spend]
-			)
-			render_template :error
+			).valid?
+			render :new
 		else
-			redirect_to :index
+			redirect_to :groups
 		end
 	end
 

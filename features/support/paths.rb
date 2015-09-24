@@ -19,6 +19,12 @@ module NavigationHelpers
     when /^the congratulations page$/
       'users/create'
 
+    when /^the groups page$/
+      '/groups'
+
+    when /^the create group page$/
+      'groups/new'
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

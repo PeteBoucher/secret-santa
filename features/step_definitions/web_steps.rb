@@ -41,7 +41,7 @@ When /^(.*) within (.*[^:]):$/ do |step, parent, table_or_string|
   with_scope(parent) { When "#{step}:", table_or_string }
 end
 
-Given /^(?:|I )am on (.+)$/ do |page_name|
+Given /^(?:|I )am on (?:|the )(.+)(?:| page)$/ do |page_name|
   visit path_to(page_name)
 end
 
@@ -78,7 +78,7 @@ end
 #
 When /^(?:|I )fill in the following:$/ do |fields|
   fields.rows_hash.each do |name, value|
-    When %{I fill in "#{name}" with "#{value}"}
+    step %{I fill in "#{name}" with "#{value}"}
   end
 end
 
@@ -118,6 +118,10 @@ Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
   else
     assert page.has_xpath?('//*', :text => regexp)
   end
+end
+
+Then (/^I should see a form$/) do
+    page.should have_xpath('//form')
 end
 
 Then /^(?:|I )should not see "([^"]*)"$/ do |text|

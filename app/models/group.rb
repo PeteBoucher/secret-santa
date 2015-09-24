@@ -13,6 +13,9 @@
 
 class Group < ActiveRecord::Base
 
+  validates :name, presence: true
+  validates :organisation, presence: true
+
   has_many :members, class_name: 'User'
 
 end
